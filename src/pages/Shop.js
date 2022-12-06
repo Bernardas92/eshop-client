@@ -67,7 +67,7 @@ export default function Shop() {
 
   return (
     <>
-      <Jumbotron title="I Want To Believe..." subTitle="eShop" />
+      <Jumbotron title="Alien Shop" subTitle="I Want to Believe" />
 
       {/* <pre>{JSON.stringify({ checked, radio }, null, 4)}</pre> */}
 

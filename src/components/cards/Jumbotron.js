@@ -1,6 +1,6 @@
 export default function Jumbotron({
   title,
-  subTitle = "EShop",
+  subTitle = "I Want To Believe...",
 }) {
   return (
     <div
