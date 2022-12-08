@@ -45,7 +45,8 @@ pre {
 
 .active {
   text-decoration: underline !important;
-  text-decoration-thickness: 5px !important;
+  text-decoration-thickness: 2px !important;
+  margin-top: 1px;
 }
 
 .pointer {
@@ -57,8 +58,8 @@ pre {
 }
 
 .hoverable:hover {
-  border-right: 5px solid #0d6efd;
-  border-bottom: 5px solid #0d6efd;
+  border-right: 5px solid #a1a1a1;
+  border-bottom: 5px solid #a1a1a1;
   border-radius: 12px;
 }
 

@@ -2,10 +2,13 @@ import { NavLink } from "react-router-dom";
 import { useAuth } from "../../context/auth";
 import { useNavigate } from "react-router-dom";
 import Search from "../forms/Search";
+import CategoriesCard from "../cards/CategoriesCard";
 import useCategory from "../../hooks/useCategory";
 import { useCart } from "../../context/cart";
 import { Badge } from "antd";
 import Logo from "../../images/Grey.png";
+import { FaShoppingBag, FaCartArrowDown } from "react-icons/fa";
+import { FiUser } from "react-icons/fi";
 
 export default function Menu() {
   // context
@@ -26,23 +29,16 @@ export default function Menu() {
   return (
     <>
       <ul className="nav d-flex justify-content-between shadow-sm mb-2 sticky-top bg-light">
-        <img src={Logo} alt="logo" />
         <li className="nav-item">
           <NavLink className="nav-link" aria-current="page" to="/">
-            HOME
+            <img src={Logo} alt="logo" />
           </NavLink>
         </li>
 
-        <li className="nav-item">
-          <NavLink className="nav-link" aria-current="page" to="/shop">
-            SHOP
-          </NavLink>
-        </li>
-
-        <div className="dropdown">
+        {/* <div className="dropdown">
           <li>
             <a
-              className="nav-link pointer dropdown-toggle"
+              className="nav-link pointer dropdown-toggle mt-2"
               data-bs-toggle="dropdown"
             >
               CATEGORIES
@@ -67,21 +63,35 @@ export default function Menu() {
               ))}
             </ul>
           </li>
-        </div>
+        </div> */}
 
-        <li className="nav-item mt-1">
+        <p>
+          <button 
+            className="btn btn-primary mt-2"
+            type="button"
+            style={{ backgroundColor: "#a1a1a1" }}
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseExample"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+          >
+            Categories
+          </button>
+        </p>
+
+        <Search />
+
+        <li className="nav-item mt-2 ">
           <Badge
             count={cart?.length >= 1 ? cart.length : 0}
             offset={[-5, 11]}
             showZero={true}
           >
             <NavLink className="nav-link" aria-current="page" to="/cart">
-              CART
+              <FaCartArrowDown /> CART
             </NavLink>
           </Badge>
         </li>
-
-        <Search />
 
         {!auth?.user ? (
           <>
@@ -100,13 +110,16 @@ export default function Menu() {
           <div className="dropdown">
             <li>
               <a
-                className="nav-link pointer dropdown-toggle"
+                className="nav-link pointer btn btn-secondary dropdown-toggle mt-2"
+                style={{ backgroundColor: "#a1a1a1" }}
                 data-bs-toggle="dropdown"
               >
-                {auth?.user?.name?.toUpperCase()}
+                Menu
               </a>
 
               <ul className="dropdown-menu">
+                <li className="nav-link">{auth?.user?.name?.toUpperCase()}</li>
+
                 <li>
                   <NavLink
                     className="nav-link"
@@ -114,8 +127,32 @@ export default function Menu() {
                       auth?.user?.role === 1 ? "admin" : "user"
                     }`}
                   >
-                    Dashboard
+                    <FiUser /> Profile
                   </NavLink>
+                  <li className="nav-item">
+                    <NavLink
+                      className="nav-link"
+                      aria-current="page"
+                      to="/shop"
+                    >
+                      <FaShoppingBag /> Shop
+                    </NavLink>
+                    <li className="nav-item ">
+                      <Badge
+                        count={cart?.length >= 1 ? cart.length : 0}
+                        offset={[-5, 11]}
+                        showZero={true}
+                      >
+                        <NavLink
+                          className="nav-link"
+                          aria-current="page"
+                          to="/cart"
+                        >
+                          <FaCartArrowDown /> CART
+                        </NavLink>
+                      </Badge>
+                    </li>
+                  </li>
                 </li>
 
                 <li className="nav-item pointer">
