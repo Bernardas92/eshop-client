@@ -69,7 +69,7 @@ export default function Menu() {
           <button 
             className="btn btn-primary mt-2"
             type="button"
-            style={{ backgroundColor: "#a1a1a1" }}
+            style={{ backgroundColor: "#a1a1a1"}}
             data-bs-toggle="collapse"
             data-bs-target="#collapseExample"
             aria-expanded="false"
@@ -87,7 +87,7 @@ export default function Menu() {
             offset={[-5, 11]}
             showZero={true}
           >
-            <NavLink className="nav-link" aria-current="page" to="/cart">
+            <NavLink className="nav-link" style={{marginRight: "5px"}} aria-current="page" to="/cart">
               <FaCartArrowDown /> CART
             </NavLink>
           </Badge>
@@ -137,7 +137,7 @@ export default function Menu() {
                     >
                       <FaShoppingBag /> Shop
                     </NavLink>
-                    <li className="nav-item ">
+                    <li className="nav-item " style={{marginRight: "5px"}}>
                       <Badge
                         count={cart?.length >= 1 ? cart.length : 0}
                         offset={[-5, 11]}
