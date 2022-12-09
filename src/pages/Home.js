@@ -55,9 +55,9 @@ export default function Home() {
 
   return (
     <div>
+      <CategoriesCard />
       <Jumbotron title="Alien shop" sutTitle="I Want To Believe" />
       <div className="container-fluid">
-        <CategoriesCard />
       <div className="col-md-2">
           </div>
         <div className="row">

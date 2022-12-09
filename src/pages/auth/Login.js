@@ -4,6 +4,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useAuth } from "../../context/auth";
 import { useNavigate, useLocation } from "react-router-dom";
+import CategoriesCard from "../../components/cards/CategoriesCard";
 
 export default function Login() {
   // state
@@ -43,6 +44,7 @@ export default function Login() {
 
   return (
     <div>
+      <CategoriesCard />
       <Jumbotron title="Login" />
 
       <div className="container mt-5">

@@ -1,67 +1,65 @@
 h1 {
-  font-family: Papyrus, fantasy;
-  font-size: 24px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 700;
-  line-height: 26.4px;
-}
-h3 {
-  font-family: Papyrus, fantasy;
+  font-family: fantasy;
   font-size: 14px;
   font-style: normal;
   font-variant: normal;
-  font-weight: 700;
-  line-height: 15.4px;
-}
-p {
-  font-family: Papyrus, fantasy;
-  font-size: 14px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 400;
+  font-weight: 100;
   line-height: 20px;
 }
-blockquote {
-  font-family: Papyrus, fantasy;
-  font-size: 21px;
+li {
+  font-family: fantasy;
+  font-size: 14px;
   font-style: normal;
   font-variant: normal;
-  font-weight: 400;
-  line-height: 30px;
-}
-pre {
-  font-family: Papyrus, fantasy;
-  font-size: 13px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 400;
-  line-height: 18.5714px;
+  font-weight: 100;
+  line-height: 20px;
 }
 
 .nav-link {
-  color:#000000;
+  color:rgb(255, 255, 255);
+}
+
+.item {
+  color:rgb(255, 255, 255);
+  font-family: fantasy;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 100;
+  line-height: 20px;
+}
+
+.item:hover {
+  color:rgb(229, 229, 229);
+}
+
+.dropdown-menu {
+  background-color: #000000;
+}
+
+.nav-link:hover {
+  color:rgb(229, 229, 229);
 }
 
 .active {
   text-decoration: underline !important;
   text-decoration-thickness: 2px !important;
   margin-top: 1px;
-}
+} */
 
 .pointer {
   cursor: pointer;
 }
 
-.card-button {
+ .card-button {
   border-radius: 0px;
 }
 
 .hoverable:hover {
-  border-right: 5px solid #a1a1a1;
-  border-bottom: 5px solid #a1a1a1;
+  border-right: 5px solid #000000;
+  border-bottom: 5px solid #000000;
   border-radius: 12px;
-}
+} 
 
 .ant-checkbox-wrapper:first-of-type {
   margin-left: 8px;
@@ -72,7 +70,6 @@ pre {
   outline: -webkit-focus-ring-color auto 0px !important;
 }
 
-/* jumbotron animation color css */
 .jumbotron {
   width: 30wh;
   height: 30vh;
@@ -118,4 +115,77 @@ pre {
   100% {
     background-position: 0% 50%;
   }
+}
+
+
+.button-85 {
+  text-decoration: none;
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:hover {
+  color: rgb(229, 229, 229);
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
 }

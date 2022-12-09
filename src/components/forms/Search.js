@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useSearch } from "../../context/search";
 import { useNavigate } from "react-router-dom";
-import {FcSearch} from "react-icons/fc"
+import {BsSearch} from "react-icons/bs"
+import "../../index.css";
 
 export default function Search() {
   // hooks
@@ -21,21 +22,21 @@ export default function Search() {
   };
 
   return (
-    <form className="d-flex mt-2"  style={{height: "35px"}} onSubmit={handleSubmit}>
+    <form className="d-flex mt-2 p-1" onSubmit={handleSubmit}>
       <input
         type="search"
-        style={{ borderRadius: "7px"}}
+        style={{ borderRadius: "7px", width: "200px", height: "30px"}}
         className="form-control"
         placeholder="Search"
         onChange={(e) => setValues({ ...values, keyword: e.target.value })}
         value={values.keyword}
       />
       <button
-        className="btn btn-outline"
+        className="d-flex p-2 bg-dark"
         type="submit"
-        style={{ borderRadius: "7px", width: "60px", paddingTop: "2px"}}
+        style={{border: "none"}}
       >
-        <FcSearch style={{fontSize: "25px"}} />
+        <BsSearch style={{color: "red"}} />
       </button>
     </form>
   );

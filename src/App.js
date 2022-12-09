@@ -21,14 +21,7 @@ import CategoriesList from "./pages/CategoriesList";
 import CategoryView from "./pages/CategoryView";
 import Cart from "./pages/Cart";
 import AdminOrders from "./pages/admin/Orders";
-
-const PageNotFound = () => {
-  return (
-    <div className="d-flex justify-content-center align-items-center vh-100">
-      404 | Page not found
-    </div>
-  );
-};
+import PageNotFound from "./components/cards/PageNotFound";
 
 export default function App() {
   return (

@@ -9,6 +9,7 @@ import { Badge } from "antd";
 import Logo from "../../images/Grey.png";
 import { FaShoppingBag, FaCartArrowDown } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
+import "../../index.css";
 
 export default function Menu() {
   // context
@@ -28,8 +29,8 @@ export default function Menu() {
 
   return (
     <>
-      <ul className="nav d-flex justify-content-between shadow-sm mb-2 sticky-top bg-light">
-        <li className="nav-item">
+      <ul className="nav d-flex justify-content-between shadow-sm mb-2 sticky-top bg-dark">
+        <li className="logo">
           <NavLink className="nav-link" aria-current="page" to="/">
             <img src={Logo} alt="logo" />
           </NavLink>
@@ -65,11 +66,10 @@ export default function Menu() {
           </li>
         </div> */}
 
-        <p>
+        <li>
           <button 
-            className="btn btn-primary mt-2"
+            className="mt-2 button-85"
             type="button"
-            style={{ backgroundColor: "#a1a1a1"}}
             data-bs-toggle="collapse"
             data-bs-target="#collapseExample"
             aria-expanded="false"
@@ -77,17 +77,17 @@ export default function Menu() {
           >
             Categories
           </button>
-        </p>
+        </li>
 
         <Search />
 
-        <li className="nav-item mt-2 ">
+        <li className="nav-item mt-3 ">
           <Badge
             count={cart?.length >= 1 ? cart.length : 0}
             offset={[-5, 11]}
             showZero={true}
           >
-            <NavLink className="nav-link" style={{marginRight: "5px"}} aria-current="page" to="/cart">
+            <NavLink className="button-85" aria-current="page" to="/cart">
               <FaCartArrowDown /> CART
             </NavLink>
           </Badge>
@@ -95,13 +95,13 @@ export default function Menu() {
 
         {!auth?.user ? (
           <>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/login">
+            <li className="nav-item mt-3">
+              <NavLink className="button-85" to="/login">
                 LOGIN
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/register">
+            <li className="nav-item mt-3">
+              <NavLink className="button-85" to="/register">
                 REGISTER
               </NavLink>
             </li>
@@ -109,16 +109,17 @@ export default function Menu() {
         ) : (
           <div className="dropdown">
             <li>
-              <a
-                className="nav-link pointer btn btn-secondary dropdown-toggle mt-2"
-                style={{ backgroundColor: "#a1a1a1" }}
+              <button
+                className="pointer button-85 ml-2 mt-2"
+                type="button"
+                // style={{ backgroundColor: "#a1a1a1" }}
                 data-bs-toggle="dropdown"
               >
                 Menu
-              </a>
+              </button>
 
               <ul className="dropdown-menu">
-                <li className="nav-link">{auth?.user?.name?.toUpperCase()}</li>
+                <li className="nav-link" >{auth?.user?.name?.toUpperCase()}</li>
 
                 <li>
                   <NavLink

@@ -1,6 +1,7 @@
 import { useAuth } from "../../context/auth";
 import Jumbotron from "../../components/cards/Jumbotron";
 import UserMenu from "../../components/nav/UserMenu";
+import CategoriesCard from "../../components/cards/CategoriesCard";
 
 export default function UserDashboard() {
   // context
@@ -8,6 +9,7 @@ export default function UserDashboard() {
 
   return (
     <>
+    <CategoriesCard />
       <Jumbotron title={`Hello ${auth?.user?.name}`} subTitle="Dashboard" />
 
       <div className="container-fluid">

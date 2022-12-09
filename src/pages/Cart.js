@@ -4,6 +4,7 @@ import Jumbotron from "../components/cards/Jumbotron";
 import { useNavigate } from "react-router-dom";
 import UserCartSidebar from "../components/cards/UserCartSidebar";
 import ProductCardHorizontal from "../components/cards/ProductCardHorizontal";
+import CategoriesCard from "../components/cards/CategoriesCard";
 
 export default function Cart() {
   // context
@@ -14,6 +15,7 @@ export default function Cart() {
 
   return (
     <>
+    <CategoriesCard />
       <Jumbotron
         title={`Hello ${auth?.token && auth?.user?.name}`}
         subTitle={
