@@ -1,12 +1,14 @@
 import useCategory from "../hooks/useCategory";
 import Jumbotron from "../components/cards/Jumbotron";
 import { Link } from "react-router-dom";
+import CategoriesCard from "../components/cards/CategoriesCard";
 
 export default function CategoriesList() {
   const categories = useCategory();
 
   return (
     <>
+      <CategoriesCard />
       <Jumbotron title="Categories" subTitle="List of all categories" />
 
       <div className="container overflow-hidden">

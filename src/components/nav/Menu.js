@@ -2,13 +2,12 @@ import { NavLink } from "react-router-dom";
 import { useAuth } from "../../context/auth";
 import { useNavigate } from "react-router-dom";
 import Search from "../forms/Search";
-import CategoriesCard from "../cards/CategoriesCard";
-import useCategory from "../../hooks/useCategory";
 import { useCart } from "../../context/cart";
 import { Badge } from "antd";
 import Logo from "../../images/Grey.png";
 import { FaShoppingBag, FaCartArrowDown } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
+import { TbLogout } from "react-icons/tb";
 import "../../index.css";
 
 export default function Menu() {
@@ -16,7 +15,7 @@ export default function Menu() {
   const [auth, setAuth] = useAuth();
   const [cart, setCart] = useCart();
   // hooks
-  const categories = useCategory();
+
   const navigate = useNavigate();
 
   // console.log("categories in menu => ", categories);
@@ -29,143 +28,104 @@ export default function Menu() {
 
   return (
     <>
-      <ul className="nav d-flex justify-content-between shadow-sm mb-2 sticky-top bg-dark">
-        <li className="logo">
-          <NavLink className="nav-link" aria-current="page" to="/">
-            <img src={Logo} alt="logo" />
-          </NavLink>
-        </li>
-
-        {/* <div className="dropdown">
-          <li>
-            <a
-              className="nav-link pointer dropdown-toggle mt-2"
-              data-bs-toggle="dropdown"
-            >
-              CATEGORIES
-            </a>
-
-            <ul
-              className="dropdown-menu"
-              style={{ height: "300px", overflow: "scroll" }}
-            >
-              <li>
-                <NavLink className="nav-link" to="/categories">
-                  All Categories
-                </NavLink>
-              </li>
-
-              {categories?.map((c) => (
-                <li key={c._id}>
-                  <NavLink className="nav-link" to={`/category/${c.slug}`}>
-                    {c.name}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-          </li>
-        </div> */}
-
-        <li>
-          <button 
-            className="mt-2 button-85"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseExample"
-            aria-expanded="false"
-            aria-controls="collapseExample"
-          >
-            Categories
-          </button>
-        </li>
-
-        <Search />
-
-        <li className="nav-item mt-3 ">
-          <Badge
-            count={cart?.length >= 1 ? cart.length : 0}
-            offset={[-5, 11]}
-            showZero={true}
-          >
-            <NavLink className="button-85" aria-current="page" to="/cart">
-              <FaCartArrowDown /> CART
-            </NavLink>
-          </Badge>
-        </li>
-
-        {!auth?.user ? (
-          <>
-            <li className="nav-item mt-3">
-              <NavLink className="button-85" to="/login">
-                LOGIN
+      <nav className="navbar navbar-expand-lg navbar-light bg-dark">
+        <div className="container-fluid">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="logo" style={{ marginRight: "20px" }}>
+              <NavLink className="nav-link" aria-current="page" to="/">
+                <img src={Logo} alt="logo" />
               </NavLink>
             </li>
-            <li className="nav-item mt-3">
-              <NavLink className="button-85" to="/register">
-                REGISTER
-              </NavLink>
-            </li>
-          </>
-        ) : (
-          <div className="dropdown">
+
             <li>
               <button
-                className="pointer button-85 ml-2 mt-2"
+                className="button-85 mt-2"
+                style={{ marginRight: "30px" }}
                 type="button"
-                // style={{ backgroundColor: "#a1a1a1" }}
-                data-bs-toggle="dropdown"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseExample"
+                aria-expanded="false"
+                aria-controls="collapseExample"
               >
-                Menu
+                Categories
               </button>
+            </li>
+            <Search />
+          </ul>
+          <div className="d-flex align-items-center">
+            <li className="nav-item" style={{ marginRight: "30px" }}>
+              <Badge
+                count={cart?.length >= 1 ? cart.length : 0}
+                offset={[-5, 11]}
+                showZero={true}
+              >
+                <NavLink className="button-85" aria-current="page" to="/cart">
+                  <FaCartArrowDown /> CART
+                </NavLink>
+              </Badge>
+            </li>
 
-              <ul className="dropdown-menu">
-                <li className="nav-link" >{auth?.user?.name?.toUpperCase()}</li>
-
-                <li>
-                  <NavLink
-                    className="nav-link"
-                    to={`/dashboard/${
-                      auth?.user?.role === 1 ? "admin" : "user"
-                    }`}
-                  >
-                    <FiUser /> Profile
+            {!auth?.user ? (
+              <>
+                <li className="nav-item" style={{ marginRight: "30px" }}>
+                  <NavLink className="button-85" to="/login">
+                    LOGIN
                   </NavLink>
-                  <li className="nav-item">
-                    <NavLink
-                      className="nav-link"
-                      aria-current="page"
-                      to="/shop"
-                    >
-                      <FaShoppingBag /> Shop
-                    </NavLink>
-                    <li className="nav-item " style={{marginRight: "5px"}}>
-                      <Badge
-                        count={cart?.length >= 1 ? cart.length : 0}
-                        offset={[-5, 11]}
-                        showZero={true}
+                </li>
+                <li className="nav-item">
+                  <NavLink className="button-85" to="/register">
+                    REGISTER
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              <div className="dropdown">
+                <li>
+                  <button
+                    className="pointer button-85"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                  >
+                    Menu
+                  </button>
+
+                  <ul className="dropdown-menu p-3">
+                    <li className="nav-link mb-3">
+                      {auth?.user?.name?.toUpperCase()}
+                    </li>
+
+                    <li>
+                      <NavLink
+                        className="nav-link"
+                        to={`/dashboard/${
+                          auth?.user?.role === 1 ? "admin" : "user"
+                        }`}
                       >
+                        <FiUser /> Profile
+                      </NavLink>
+                      <li className="nav-item mt-1">
                         <NavLink
                           className="nav-link"
                           aria-current="page"
-                          to="/cart"
+                          to="/shop"
                         >
-                          <FaCartArrowDown /> CART
+                          <FaShoppingBag /> Shop
                         </NavLink>
-                      </Badge>
+                      </li>
                     </li>
-                  </li>
-                </li>
 
-                <li className="nav-item pointer">
-                  <a onClick={logout} className="nav-link">
-                    Logout
-                  </a>
+                    <li className="nav-item pointer">
+                      <a onClick={logout} className="nav-link mt-1">
+                        <TbLogout /> Logout
+                      </a>
+                    </li>
+                  </ul>
                 </li>
-              </ul>
-            </li>
+              </div>
+            )}
           </div>
-        )}
-      </ul>
+        </div>
+      </nav>
     </>
   );
 }

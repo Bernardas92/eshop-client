@@ -13,6 +13,7 @@ li {
   font-variant: normal;
   font-weight: 100;
   line-height: 20px;
+  list-style-type: none;
 }
 
 .nav-link {
@@ -45,7 +46,7 @@ li {
   text-decoration: underline !important;
   text-decoration-thickness: 2px !important;
   margin-top: 1px;
-}
+} */
 
 .pointer {
   cursor: pointer;
