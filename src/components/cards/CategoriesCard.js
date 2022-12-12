@@ -7,8 +7,8 @@ export default function CategoriesCard() {
   const categories = useCategory();
   return (
     <>
-      <div className="collapse mt-1" id="collapseExample">
-        <div className="card card-body bg-dark">
+      <div className="collapse" id="collapseExample">
+        <div className="card card-body light">
           <NavLink className="item" to="/categories">
             All Categories
           </NavLink>

@@ -25,16 +25,16 @@ export default function Search() {
     <form className="d-flex mt-2" onSubmit={handleSubmit}>
       <input
         type="search"
-        style={{ borderRadius: "7px", width: "200px", height: "30px"}}
+        style={{ borderRadius: "7px", width: "180px", height: "27px"}}
         className="form-control"
         placeholder="Search"
         onChange={(e) => setValues({ ...values, keyword: e.target.value })}
         value={values.keyword}
       />
       <button
-        className="d-flex p-2 bg-dark"
+        className="d-flex p-2 "
         type="submit"
-        style={{border: "none"}}
+        style={{border: "none", backgroundColor: "transparent"}}
       >
         <BsSearch style={{color: "red"}} />
       </button>
