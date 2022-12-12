@@ -40,7 +40,7 @@ export default function Menu() {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       {/* Navbar brand */}
       <a className="navbar-brand mt-2 mt-lg-0" href="#">
-        <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height={15} alt="MDB Logo" loading="lazy" />
+        <img src={Logo} height={35} alt="Logo" loading="lazy" />
       </a>
       {/* Left links */}
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
