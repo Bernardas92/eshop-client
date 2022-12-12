@@ -57,7 +57,7 @@ export default function Menu() {
             </NavLink>
           </a>
           {/* Left links */}
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0" id="navbarSupportedContent">
             <li className="nav-item">
               <NavLink className="nav-link" aria-current="page" to="/shop">
                 SHOP
