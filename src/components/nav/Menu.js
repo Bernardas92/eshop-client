@@ -5,7 +5,7 @@ import {
   faBell,
   faBars,
 } from "@fortawesome/free-solid-svg-icons";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useAuth } from "../../context/auth";
 import { useNavigate } from "react-router-dom";
 import Search from "../forms/Search";
@@ -13,7 +13,6 @@ import { useCart } from "../../context/cart";
 import { Badge } from "antd";
 import Logo from "../../images/Grey.png";
 import useCategory from "../../hooks/useCategory";
-import CategoriesCard from "../cards/CategoriesCard";
 
 export default function Menu() {
   // context
@@ -38,26 +37,33 @@ export default function Menu() {
       <div className="container-fluid">
         {/* Toggle button */}
         <button
+          // className="navbar-toggler"
+          // type="button"
+          // data-mdb-toggle="collapse"
+          // data-mdb-target="#navbarSupportedContent"
+          // aria-controls="navbarSupportedContent"
+          // aria-expanded="false"
+          // aria-label="Toggle navigation"
+
           className="navbar-toggler"
-          type="button"
-          data-mdb-toggle="collapse"
-          data-mdb-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
+          data-bs-toggle="collapse"
+          href="#navbarSupportedContent"
+          role="button"
           aria-expanded="false"
-          aria-label="Toggle navigation"
+          aria-controls="collapseExample"
         >
           <FontAwesomeIcon icon={faBars} />
         </button>
         {/* Collapsible wrapper */}
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           {/* Navbar brand */}
-          <a className="navbar-brand mt-2 mt-lg-0" href="#">
+          <a className="navbar-brand mt-2 mt-lg-0">
             <NavLink className="nav-link" aria-current="page" to="/">
               <img src={Logo} height={35} alt="Logo" loading="lazy" />
             </NavLink>
           </a>
           {/* Left links */}
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <NavLink className="nav-link" aria-current="page" to="/shop">
                 SHOP
@@ -86,28 +92,28 @@ export default function Menu() {
         <div className="d-flex align-items-center">
           {/* Icon */}
           <a className="text-reset me-3">
-            <FontAwesomeIcon icon={faCartShopping} />
             <Badge
               count={cart?.length >= 1 ? cart.length : 0}
               offset={[-5, 11]}
               showZero={true}
             >
               <NavLink className="nav-link p-3" aria-current="page" to="/cart">
-                CART
+              <FontAwesomeIcon icon={faCartShopping} />
               </NavLink>
             </Badge>
           </a>
-          {/* Notifications */}
+
 
           {/* Avatar */}
-          <div className="dropdown">
+          <div className="collapse navbar-collapse">
             <a
               className="dropdown-toggle d-flex align-items-center hidden-arrow"
-              href="#"
-              id="navbarDropdownMenuAvatar"
+              // className="nav-link"
+              data-bs-toggle="collapse"
+              href="#profileMenu"
               role="button"
-              data-mdb-toggle="dropdown"
               aria-expanded="false"
+              aria-controls="profileMenu"
             >
               <img
                 src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
@@ -119,7 +125,7 @@ export default function Menu() {
             </a>
             <ul
               className="dropdown-menu dropdown-menu-end"
-              aria-labelledby="navbarDropdownMenuAvatar"
+              aria-labelledby="profileMenu"
             >
               <li>
                 <a className="dropdown-item">
