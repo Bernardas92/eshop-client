@@ -4,7 +4,7 @@ import Jumbotron from "../../components/cards/Jumbotron";
 import UserMenu from "../../components/nav/UserMenu";
 import axios from "axios";
 import toast from "react-hot-toast";
-import CategoriesCard from "../../components/cards/CategoriesCard";
+
 
 export default function UserProfile() {
   // context

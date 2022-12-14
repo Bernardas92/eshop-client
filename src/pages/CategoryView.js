@@ -3,7 +3,7 @@ import Jumbotron from "../components/cards/Jumbotron";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import ProductCard from "../components/cards/ProductCard";
-import CategoriesCard from "../components/cards/CategoriesCard";
+
 
 export default function CategoryView() {
   // state
@@ -29,7 +29,6 @@ export default function CategoryView() {
 
   return (
     <>
-    <CategoriesCard />
       <Jumbotron
         title={category?.name}
         subTitle={`${products?.length} products found in "${category?.name}"`}

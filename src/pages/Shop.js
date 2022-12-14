@@ -4,7 +4,7 @@ import axios from "axios";
 import ProductCard from "../components/cards/ProductCard";
 import { Checkbox, Radio } from "antd";
 import { prices } from "../prices";
-import CategoriesCard from "../components/cards/CategoriesCard";
+
 
 export default function Shop() {
   const [categories, setCategories] = useState([]);
@@ -68,7 +68,6 @@ export default function Shop() {
 
   return (
     <>
-    <CategoriesCard />
       <Jumbotron title="Alien Shop" subTitle="I Want to Believe" />
 
       {/* <pre>{JSON.stringify({ checked, radio }, null, 4)}</pre> */}

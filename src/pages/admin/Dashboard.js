@@ -1,7 +1,7 @@
 import { useAuth } from "../../context/auth";
 import Jumbotron from "../../components/cards/Jumbotron";
 import AdminMenu from "../../components/nav/AdminMenu";
-import CategoriesCard from "../../components/cards/CategoriesCard";
+
 
 export default function AdminDashboard() {
   // context
@@ -9,7 +9,6 @@ export default function AdminDashboard() {
 
   return (
     <>
-    <CategoriesCard />
       <Jumbotron
         title={`Hello ${auth?.user?.name}`}
         subTitle="Admin Dashboard"

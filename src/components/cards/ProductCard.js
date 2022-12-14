@@ -2,7 +2,7 @@ import { Badge } from "antd";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/cart";
-import CategoriesCard from "./CategoriesCard";
+
 
 export default function ProductCard({ p }) {
   // context

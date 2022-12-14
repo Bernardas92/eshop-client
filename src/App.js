@@ -22,11 +22,13 @@ import CategoryView from "./pages/CategoryView";
 import Cart from "./pages/Cart";
 import AdminOrders from "./pages/admin/Orders";
 import PageNotFound from "./components/cards/PageNotFound";
+import NavBar from "./components/nav/NavBar";
+
 
 export default function App() {
   return (
     <BrowserRouter>
-      <Menu />
+      <NavBar />
       <Toaster position="top-right" />
       <Routes>
         <Route path="/" element={<Home />} />
