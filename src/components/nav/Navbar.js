@@ -11,7 +11,6 @@ import { useCart } from "../../context/cart";
 import { Badge } from "antd";
 import Logo from "../../images/Grey.png";
 import useCategory from "../../hooks/useCategory";
-
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
